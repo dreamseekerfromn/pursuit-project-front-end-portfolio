@@ -76,6 +76,23 @@ const monImgFileMatcher = {
     'Fatalis'*/
 }
 
+const weaponIconFileMatcher = {
+    'Sword and Shield' : "Sword_and_Shield_Icon_White.webp",
+    'Dual Blades' : "Dual_Blades_Icon_White.webp",
+    'Long Sword' : "Long_Sword_Icon_White.webp",
+    'Great Sword' : "Great_Sword_Icon_White.webp",
+    'Lance' : "Lance_Icon_White.webp",
+    'Gunlance' : "Gunlance_Icon_White.webp",
+    'Hammer' : "Hammer_Icon_White.webp",
+    'Hunting Horn' : "Hunting_Horn_Icon_White.webp",
+    'Charge Blade' : "Charge_Blade_Icon_White.webp",
+    'Switch Axe' : "Switch_Axe_Icon_White.webp",
+    'Insect Glaive' : "Insect_Glaive_Icon_White.webp",
+    'Light Bowgun' : "Light_Bowgun_Icon_White.webp",
+    'Heavy Bowgun' : "Heavy_Bowgun_Icon_White.webp",
+    'Bow' : "Bow_Icon_White.webp",
+}
+
 submitB.addEventListener('click', e=>onSubmit(e));
 
 function onSubmit(e){
@@ -107,7 +124,8 @@ function validateNum(str){
 
 function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName){
     const div = document.createElement("div");
-    const monNameTag = document.createElement("p");
+    const monNameTag = document.createElement("div");
+    monNameTag.setAttribute('class','monster_info');
     const weaponTag = document.createElement("p");
     const difficultyTag = document.createElement("p");
     const trialTag = document.createElement("p");
@@ -116,11 +134,26 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
 
     monNameFieldGen(monNameTag, monsterName);
     err.appendChild(monNameTag);
+
+    weaponFieldGen(weaponTag, weapon);
+    err.appendChild(weaponTag);
+}
+
+function weaponFieldGen(weaponTag, weapon){
+    const img = document.createElement('img');
+    img.setAttribute('src', `./assets/img/weapons/${weaponIconFileMatcher[weapon]}`);
+    img.setAttribute('class', "weapon_icon");
+    weaponTag.appendChild(img);
+
+    const h4 = document.createElement('h4');
+    h4.innerText = weapon;
+
+    weaponTag.appendChild(h4);
 }
 
 function monNameFieldGen(monNameTag, monsterName){
     const img = document.createElement('img');
-    img.setAttribute('src', `./assets/img/${monImgFileMatcher[monsterName]}`);
+    img.setAttribute('src', `./assets/img/monster_icons/${monImgFileMatcher[monsterName]}`);
     img.setAttribute('class', "monster_icon");
     monNameTag.appendChild(img);
 
@@ -129,6 +162,10 @@ function monNameFieldGen(monNameTag, monsterName){
 
     toolTipGen(tooltip, monsterName);
     monNameTag.appendChild(tooltip);
+
+    const h4 = document.createElement('h4');
+    h4.innerText = monsterName;
+    monNameTag.appendChild(h4);
 }
 
 function toolTipGen(tooltip, monsterName){

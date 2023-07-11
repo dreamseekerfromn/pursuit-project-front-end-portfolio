@@ -1,0 +1,49 @@
+body{
+    display: grid;
+    grid-template-areas: 
+        'header header header header header'
+        'input main main main main'
+        'input main main main main'
+        'input main main main main'
+        'input main main main main'
+        'footer footer footer footer footer';
+}
+
+.input_field {
+    grid-area: input;
+}
+
+.err_container {
+    grid-area: input;
+}
+
+header {
+    grid-area: header;
+}
+
+.result {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.monster_icon {
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    border: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: gold;
+    background-color: blue;
+}
+
+ .monster_info:hover .tooltip {
+    display: block;
+}

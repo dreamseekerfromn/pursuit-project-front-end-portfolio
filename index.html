@@ -9,9 +9,13 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body>
+        <header>
+            <h1>Personal Monster Hunter Diary</h1>
+        </header>
         <main>
-            <div>
+            <div class="input_field">
                 <form class="new_item">
+                    <label for="monster_list">Monster Name</label><br/>
                     <select class="monster_list">
                         <option id="anjanath">Anjanath</option>
                         <option id="barroth">Barroth</option>
@@ -84,47 +88,56 @@
                         <option id="alatreon">Alatreon</option>
                         <option id="frostfang_barioth">Frostfang Barioth</option>
                         <option id="fatalis">Fatalis</option>
-                    </select>
+                    </select><br/>
+                    <label for="difficulty">Rank</label><br/>
                     <select class="difficulty" id="difficulty">
                         <option>Low Rank</option>
                         <option>High Rank</option>
                         <option>Master Rank</option>
-                    </select>
+                    </select><br/>
+                    <label for="number_of_trial">Number of Trial</label><br/>
                     <input type="text" class="number_of_trial" id="number_of_trial">
+                    <label for="weapon">Weapon that is used</label><br/>
                     <select class="weapon" id="weapon">
-                        <option>One Hand Sword</option>
-                        <option>Two Hand Sword</option>
+                        <option>Sword and Shield</option>
+                        <option>Dual Blades</option>
+                        <option>Long Sword</option>
+                        <option>Great Sword</option>
                         <option>Lance</option>
                         <option>Gunlance</option>
                         <option>Hammer</option>
-                        <option>Flute</option>
-                        <option>Charge Axe</option>
-                        <option>Slash Axe</option>
+                        <option>Hunting Horn</option>
+                        <option>Charge Blade</option>
+                        <option>Switch Axe</option>
+                        <option>Insect Glaive</option>
                         <option>Light Bowgun</option>
                         <option>Heavy Bowgun</option>
                         <option>Bow</option>
-                    </select>
+                    </select><br/>
+                    <label for="success">Defeat the monster?</label><br/>
                     <select class="success" id="success">
                         <option>Yes</option>
                         <option>No</option>
-                    </select>
-                    <textarea class="memo" id="memo"></textarea>
+                    </select><br/>
+                    <label for="memo">Extra Stuffs You Want to Write Down</label><br/>
+                    <textarea class="memo" id="memo"></textarea><br/>
                     <button type="submit" id="new_item_submit">Submit</button>
                     <button type="button" id="new_item_reset" value="reset">Reset</button>
                 </form>
-                <div>
+                <div class="err_container">
                     <p class="err"></p>
                 </div>
             </div>
             <div class="result">
-    
+                <h2>Result</h2>
             </div>
             <div>
     
             </div>
         </main>
+        <footer>
+            <h4>This webpage is created by Sung Yi</h4>
+        </footer>
     </body>
-    <footer>
-
-    </footer>
+    
 </html>
