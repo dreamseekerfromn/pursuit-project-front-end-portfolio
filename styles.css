@@ -47,3 +47,13 @@ footer {
  .monster_info:hover .tooltip {
     display: block;
 }
+
+.record_hidden {
+    display:none;
+}
+
+.record_show {
+    display:block;
+    position: absolute;
+    border: 1px;
+}

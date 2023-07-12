@@ -1,6 +1,7 @@
 const url = "https://mhw-db.com/monsters/";
 const submitB = document.querySelector('#new_item_submit');
-const err = document.querySelector('.err');
+const err = document.querySelector('.err_container');
+const resultDiv = document.querySelector('.result');
 
 const monImgFileMatcher = {
     "Anjanath" : "MHW_Anjanath_Icon.webp",
@@ -93,6 +94,11 @@ const weaponIconFileMatcher = {
     'Bow' : "Bow_Icon_White.webp",
 }
 
+const successStampMatcher = {
+    'Yes' : 'quest-clear.png',
+    'No' : 'quest-failed.png',
+}
+
 submitB.addEventListener('click', e=>onSubmit(e));
 
 function onSubmit(e){
@@ -107,8 +113,10 @@ function onSubmit(e){
     const weapon = weaponQuery.options[weaponQuery.selectedIndex].text;
     const difficultyQuery = document.querySelector('.difficulty');
     const difficulty = difficultyQuery.options[difficultyQuery.selectedIndex].text;
-    const numOfTrial = document.querySelector('.number_of_trial').text;
-    const success = document.querySelector('.success').text;
+    //const numOfTrialQuery = document.querySelector('.number_of_trial');
+    const numOfTrial = document.querySelector('.number_of_trial').value;
+    const successQuery = document.querySelector('.success');
+    const success = successQuery.options[successQuery.selectedIndex].text;
 
     createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName);
     
@@ -125,18 +133,61 @@ function validateNum(str){
 function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName){
     const div = document.createElement("div");
     const monNameTag = document.createElement("div");
-    monNameTag.setAttribute('class','monster_info');
+    
     const weaponTag = document.createElement("p");
     const difficultyTag = document.createElement("p");
     const trialTag = document.createElement("p");
     const successTag = document.createElement("p");
     const memoTag = document.createElement("p");
 
+    const listDiv = document.createElement("div");
+    listDiv.setAttribute('class', 'list');
+
+
+
+
     monNameFieldGen(monNameTag, monsterName);
-    err.appendChild(monNameTag);
+    div.appendChild(monNameTag);
 
     weaponFieldGen(weaponTag, weapon);
-    err.appendChild(weaponTag);
+    div.appendChild(weaponTag);
+
+    difficultyFieldGen(difficultyTag, difficulty);
+    div.appendChild(difficultyTag);
+    successFieldGen(successTag, success);
+    div.appendChild(successTag);
+
+    numOfTrialFieldGen(trialTag, numOfTrial);
+    div.appendChild(trialTag);
+
+    div.setAttribute('class', 'record_hidden');
+    listDiv.innerText = 'HI';
+    listDiv.appendChild(div);
+    listDiv.addEventListener("click", () => {
+        if(div.className == 'record_hidden'){
+            div.className = 'record_show';
+        }
+        else{
+            div.className = 'record_hidden';
+        }
+    });
+    resultDiv.appendChild(listDiv);
+
+}
+
+function successFieldGen(successTag, success){
+    const img = document.createElement('img');
+    img.setAttribute('class','stamp');
+    img.setAttribute('src',`./assets/img/stamp/${successStampMatcher[success]}`);
+    successTag.appendChild(img);
+}
+
+function numOfTrialFieldGen(trialTag, numOfTrial){
+    trialTag.innerText = numOfTrial;
+}
+
+function difficultyFieldGen(difficultyTag, difficulty){
+    difficultyTag.innerText = difficulty;
 }
 
 function weaponFieldGen(weaponTag, weapon){
@@ -152,6 +203,7 @@ function weaponFieldGen(weaponTag, weapon){
 }
 
 function monNameFieldGen(monNameTag, monsterName){
+    monNameTag.setAttribute('class','monster_info');
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/img/monster_icons/${monImgFileMatcher[monsterName]}`);
     img.setAttribute('class', "monster_icon");
