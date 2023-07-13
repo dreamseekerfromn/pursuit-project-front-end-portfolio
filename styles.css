@@ -1,3 +1,7 @@
+html {
+    background-image: url(./assets/img/background/bg_page.jpg);
+}
+
 body{
     height: 100%;
     width: 100%;

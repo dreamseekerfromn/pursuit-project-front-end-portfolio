@@ -116,15 +116,57 @@ function onSubmit(e){
     const successQuery = document.querySelector('.success');
     const success = successQuery.options[successQuery.selectedIndex].text;
 
-    createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName);
+    if(validateNum(numOfTrial)){
+        createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName);
+    }
+
     
+    form.reset(); 
 }
 
 function validateNum(str){
-    if(!/\d+/.test(str)){
+    const errMsgContainerQuery = document.querySelector('.err_msg_container');
+    if(errMsgContainerQuery){
+        errMsgContainerQuery.remove();
+    }
+    const errorMsgContainer = document.createElement('p');
+    errorMsgContainer.setAttribute('class','err_msg_container');
+    
+    if(!/\d+/.test(str.toString())){
         const span = document.createElement('span');
         span.innerText = "digit only";
-        err.appendChild(span);
+        
+        errorMsgContainer.appendChild(span);
+        err.appendChild(errorMsgContainer);
+        return false;
+    }
+    
+    if(Number(str) == 0){
+        const span = document.createElement('span');
+        span.innerText = "You should try at least once, duh";
+        
+        errorMsgContainer.appendChild(span);
+        err.appendChild(errorMsgContainer);
+        return false;
+    }
+    else if(Number(str) < 0){
+        const span = document.createElement('span');
+        span.innerText = "The number cannot be negative.";
+        
+        errorMsgContainer.appendChild(span);
+        err.appendChild(errorMsgContainer);
+        return false;
+    }
+    else if(Number(str) % 1 !== 0){
+        const span = document.createElement('span');
+        span.innerText = "The number cannot be float.";
+        
+        errorMsgContainer.appendChild(span);
+        err.appendChild(errorMsgContainer);
+        return false;
+    }
+    else{
+        return true;
     }
 }
 
@@ -172,8 +214,6 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
     addRemove(listDiv);
 
     resultDiv.prepend(listDiv);
-
-    form.reset(); 
 }
 
 function addListField(tag, monsterName){
