@@ -33,8 +33,25 @@ header {
     top: 0%;
     width: 100%;
     text-align: center;
-    background-color: aqua;
+    color: silver;
+    z-index: 1;
 }
+
+.header_img {
+    z-index: 0;
+    mix-blend-mode:multiply;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+
+
+
 
 main {
     grid-row:2;
