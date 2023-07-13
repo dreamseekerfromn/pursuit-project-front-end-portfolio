@@ -1,32 +1,62 @@
 body{
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-areas: 
-        'header header header header header'
-        'input main main main main'
-        'input main main main main'
-        'input main main main main'
-        'input main main main main'
-        'footer footer footer footer footer';
+    grid-template-rows: 3;
 }
 
 .input_field {
     grid-area: input;
 }
 
+/*
 .err_container {
     grid-area: input;
 }
+*/
 
 header {
-    grid-area: header;
+    grid-row:1;
+    top: 0%;
+    width: 100%;
+    text-align: center;
+    background-color: aqua;
+}
+
+main {
+    grid-row:2;
+    display:grid;
+    grid-template-areas: 
+    'input result result'
+    'input result result'
+    'input result result';
+    width: 100%
+
 }
 
 .result {
-    grid-area: main;
+    grid-area: result;
+    background-color: blueviolet;
+    width: 100%;
 }
 
 footer {
-    grid-area: footer;
+
+    grid-row: 3;
+    margin:0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    color:antiquewhite;
+    background-color: grey;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-small;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .monster_icon {
@@ -56,4 +86,5 @@ footer {
     display:block;
     position: absolute;
     border: 1px;
+    background-color: rgba(00,80,00, .3);
 }

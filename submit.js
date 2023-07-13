@@ -2,7 +2,7 @@ const url = "https://mhw-db.com/monsters/";
 const submitB = document.querySelector('#new_item_submit');
 const err = document.querySelector('.err_container');
 const resultDiv = document.querySelector('.result');
-
+const form = document.querySelector('.new_item');
 const monImgFileMatcher = {
     "Anjanath" : "MHW_Anjanath_Icon.webp",
     "Barroth" : "MHW_Barroth_Icon.webp",
@@ -103,8 +103,6 @@ submitB.addEventListener('click', e=>onSubmit(e));
 
 function onSubmit(e){
     e.preventDefault();
-    //https://mhw-db.com/monsters?q={"name":"Bazelgeuse"}
-    //fetch(``)
 
     const monsterBox = document.querySelector('.monster_list');
     const monsterName = monsterBox.options[monsterBox.selectedIndex].text;
@@ -143,9 +141,6 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
     const listDiv = document.createElement("div");
     listDiv.setAttribute('class', 'list');
 
-
-
-
     monNameFieldGen(monNameTag, monsterName);
     div.appendChild(monNameTag);
 
@@ -161,8 +156,11 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
     div.appendChild(trialTag);
 
     div.setAttribute('class', 'record_hidden');
-    listDiv.innerText = 'HI';
+    
+    
     listDiv.appendChild(div);
+    addListField(listDiv, monsterName);
+    
     listDiv.addEventListener("click", () => {
         if(div.className == 'record_hidden'){
             div.className = 'record_show';
@@ -171,8 +169,34 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
             div.className = 'record_hidden';
         }
     });
-    resultDiv.appendChild(listDiv);
+    addRemove(listDiv);
 
+    resultDiv.prepend(listDiv);
+
+    form.reset(); 
+}
+
+function addListField(tag, monsterName){
+    const spanTime = document.createElement('span');
+    let today = new Date();
+    let time = (today.getMonth()+1)+'-'+today.getDate() + '-' + today.getFullYear() + '-' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    spanTime.innerText = time;
+
+    const spanName = document.createElement('span');
+    spanName.innerText = monsterName;
+
+    tag.appendChild(spanTime);
+    tag.appendChild(spanName);
+
+    
+}
+
+function addRemove(tag){
+    const button = document.createElement('button');
+    button.innerText = 'remove';
+    button.addEventListener('click', ()=>tag.remove());
+    tag.appendChild(button);
 }
 
 function successFieldGen(successTag, success){

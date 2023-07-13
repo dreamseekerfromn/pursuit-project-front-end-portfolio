@@ -5,7 +5,8 @@
     <head>
         <title>Personal Monster Hunter Diary</title>
         <meta charset="utf-8" />
-        <script type="text/javascript" src="index.js" defer></script>
+        <script type="text/javascript" src="submit.js" defer></script>
+        <script type="text/javascript" src="reset.js" defer></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body>
@@ -14,7 +15,7 @@
         </header>
         <main>
             <div class="input_field">
-                <form class="new_item">
+                <form class="new_item" id="new_item">
                     <label for="monster_list">Monster Name</label><br/>
                     <select class="monster_list">
                         <option id="anjanath">Anjanath</option>
@@ -121,15 +122,15 @@
                     </select><br/>
                     <label for="memo">Extra Stuffs You Want to Write Down</label><br/>
                     <textarea class="memo" id="memo"></textarea><br/>
-                    <button type="submit" id="new_item_submit">Submit</button>
-                    <button type="button" id="new_item_reset" value="reset">Reset</button>
+                    <button type="submit" class="new_item_submit" id="new_item_submit">Submit</button>
+                    <button type="button" class="new_item_reset" id="new_item_reset" value="reset">Reset</button>
                 </form>
                 <div class="err_container">
                     <p class="err"></p>
                 </div>
             </div>
             <div class="result">
-                <h2>Result</h2>
+                
             </div>
             <div>
     
