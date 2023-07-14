@@ -102,6 +102,7 @@ const successStampMatcher = {
     'No' : 'quest-failed.png',
 }
 
+
 /**
  * onSubmit
  * Listen to onSubmit event
@@ -135,7 +136,7 @@ function onSubmit(e){
     const success = successQuery.options[successQuery.selectedIndex].text;
 
     /* validation for the data */
-    if(validateNum(numOfTrial)){
+    if(validation(numOfTrial, difficulty, monsterName)){
         createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName);
     }
 
@@ -144,16 +145,16 @@ function onSubmit(e){
 }
 
 /**
- * validateNum()
- * ---------------------------------
- * validate the string input from the form.
- * This function will filter out the negative numbers/floats/any character besides number.
+ * validation()
+ * -----------------------------
+ * varify inputs from the form.
  * 
- * @param {string} str - a string value from the input field on the html page.
+ * @param {string} numOfTrial - number of trial..it should be integer.
+ * @param {string} rank - certain monsters can be found in certain difficulty.
+ * @param {string} monsterName - a monster's name
  * @returns {boolean}
  */
-function validateNum(str){
-    /* declare existing query to erase old error messages */
+function validation(numOfTrial, rank, monsterName){
     const errMsgContainerQuery = document.querySelector('.err_msg_container');
 
     if(errMsgContainerQuery){
@@ -164,6 +165,81 @@ function validateNum(str){
     const errorMsgContainer = document.createElement('p');
     errorMsgContainer.setAttribute('class','err_msg_container');
     
+    if(!validateNum(errorMsgContainer, numOfTrial)){
+        return false;
+    }
+    if(!validateRank(errorMsgContainer, rank, monsterName)){
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * validateRank()
+ * ----------------------------------------
+ * validate the difficulty (monster's rank) of the monster.
+ * 
+ * @param {object} errorMsgContainer - where the error message placed
+ * @param {string} rank - a monster's rank to validate
+ * @param {string} monsterName - a monster's name
+ * @returns {boolean}
+ */
+function validateRank(errorMsgContainer, rank, monsterName){
+    const lowRank = ["Great Jagras", "Kulu-Ya-Ku", "Pukei-Pukei", "Barroth", "Jyuratodus", "Tobi-Kadachi", "Anjanath", "Rathian", "Tzitzi-Ya-Ku", "Paolumu", "Great Girros", "Radobaan", "Legiana", "Odogaron", "Rathalos", "Diablos"];
+    const highRank = ["Zorah Magdaros", "Kirin", "Bazelgeuse", "Pink Rathian", "Dodogama", "Kushala Daora", "Lavasioth", "Nergigante", "Teostra", "Uragaan", "Vaal Hazak", "Xeno'jiiva", "Azure Rathalos", "Black Diablos", "Deviljho", "Kulve Taroth", "Lunastra", "Behemoth", "Leshen", "Ancient Leshen"];
+    const masterRank = ["Banbaro", "Barioth", "Beotodus", "Brachydios", "Brute Tigrex", "Coral Pukei-Pukei", "Ebony Odogaron", "Fulgur Anjanath", "Glavenus", "Namielle", "Nargacuga", "Nightshade Paolumu", "Rajang", "Shara Ishvalda", "Shrieking Legiana", "Tigrex", "Velkhana", "Viper Tobi-Kadachi", "Yian Garuga", "Zinogre", "Alatreon", "Fatalis", "Frostfang Barioth", "Furious Rajang", "Gold Rathian", "Raging Brachydios", "Safi'jiiva", "Scarred Yian Garuga", "Stygian Zinogre", "Kirin", "Seething Bazelgeuse", "Pink Rathian", "Dodogama", "Kushala Daora", "Lavasioth", "Ruiner Nergigante", "Teostra", "Uragaan", "Blackveil Vaal Hazak", "Azure Rathalos", "Black Diablos", "Great Jagras", "Kulu-Ya-Ku", "Pukei-Pukei","Lunastra", "Barroth", "Jyuratodus", "Tobi-Kadachi", "Anjanath", "Rathian", "Tzitzi-Ya-Ku", "Paolumu", "Great Girros", "Radobaan", "Legiana", "Odogaron", "Rathalos", "Diablos"];
+
+    if(rank == "Low Rank"){
+        if(!lowRank.find(elem => elem == monsterName)){
+            const span = document.createElement('span');
+            span.innerText = `${monsterName} is not a "${rank}" monster.`;
+            
+            errorMsgContainer.appendChild(span);
+            err.appendChild(errorMsgContainer);
+            return false;
+        }
+        return true;
+    }
+    else if(rank == "High Rank"){
+        if(!highRank.find(elem => elem == monsterName)){
+            const span = document.createElement('span');
+            span.innerText = `${monsterName} is not a "${rank}" monster.`;
+            
+            errorMsgContainer.appendChild(span);
+            err.appendChild(errorMsgContainer);
+            return false;
+        }
+        return true;
+    }
+    else if(rank == "Master Rank"){
+        if(!masterRank.find(elem => elem == monsterName)){
+            const span = document.createElement('span');
+            span.innerText = `${monsterName} is not a "${rank}" monster.`;
+            
+            errorMsgContainer.appendChild(span);
+            err.appendChild(errorMsgContainer);
+            return false;
+            }
+        return true;
+    }
+    else {
+        console.log("something wrong");
+        return false;
+    }
+}
+
+/**
+ * validateNum()
+ * ---------------------------------
+ * validate the string input from the form.
+ * This function will filter out the negative numbers/floats/any character besides number.
+ * 
+ * @param {object} errorMsgContainer - place to put error messages.
+ * @param {string} str - a string value from the input field on the html page.
+ * @returns {boolean}
+ */
+function validateNum(errorMsgContainer, str){
     /* is it digit? */
     if(!/\d+/.test(str.toString())){
         const span = document.createElement('span');
