@@ -192,11 +192,12 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
 
     difficultyFieldGen(difficultyTag, difficulty);
     div.appendChild(difficultyTag);
-    successFieldGen(successTag, success);
-    div.appendChild(successTag);
-
+    
     numOfTrialFieldGen(trialTag, numOfTrial);
     div.appendChild(trialTag);
+    
+    successFieldGen(successTag, success);
+    div.appendChild(successTag);
 
     div.setAttribute('class', 'record_hidden');
     
