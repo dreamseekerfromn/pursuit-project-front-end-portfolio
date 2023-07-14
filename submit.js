@@ -3,6 +3,7 @@ const submitB = document.querySelector('#new_item_submit');
 const err = document.querySelector('.err_container');
 const resultDiv = document.querySelector('.result');
 const form = document.querySelector('.new_item');
+
 const monImgFileMatcher = {
     "Anjanath" : "MHW_Anjanath_Icon.webp",
     "Barroth" : "MHW_Barroth_Icon.webp", 
@@ -67,14 +68,14 @@ const monImgFileMatcher = {
     'Zinogre' : "MHWI_Zinogre_Icon.webp",
     'Rajang' : "MHWI_Rajang_Icon.webp",
     'Fatalis' : "mhwi-fatalis_icon.png",
-    /*'Azure Rathalos'
-    'Leshen'
-    'Stygian Zinogre'
-    'Safi\'jiiva'
-    'Raging Brachydios'
-    'Furious Rajang'
-    'Alatreon'
-    'Frostfang Barioth'*/
+    'Azure Rathalos' : "MHW-Azure_Rathalos_Icon.webp",
+    'Leshen' : "MHW_Leshen_Icon.webp",
+    'Stygian Zinogre' : "MHWI-Stygian_Zinogre_Icon.webp",
+    'Safi\'jiiva' : "MHWI-Safi%27jiiva_Icon.webp",
+    'Raging Brachydios' : "MHWI-Raging_Brachydios_Icon.webp",
+    'Furious Rajang' : "MHWI-Furious_Rajang_Icon.webp",
+    'Alatreon' : "MHWI-Alatreon_Icon.webp",
+    'Frostfang Barioth' : "MHWI-Frostfang_Barioth_Icon.webp",
 }
 
 const weaponIconFileMatcher = {
@@ -243,6 +244,7 @@ function successFieldGen(successTag, success){
     const img = document.createElement('img');
     img.setAttribute('class','stamp');
     img.setAttribute('src',`./assets/img/stamp/${successStampMatcher[success]}`);
+    img.setAttribute('class',"stamp");
     successTag.appendChild(img);
 }
 
