@@ -28,54 +28,53 @@ const monImgFileMatcher = {
     'Odogaron' : "MHW_Odogaron_Icon.webp",
     'Paolumu' : "MHW_Paolumu_Icon.webp",
     'Pukei-Pukei' : "MHW_Pukei-Pukei_Icon.webp",
-    /*
-    'Radobaan' assets/img/monster_icons/MHW_Radobaan_Icon.webp 
-    'Rathalos' assets/img/monster_icons/MHW_Rathalos_Icon.webp 
-    'Azure Rathalos' 
-    'Rathian' assets/img/monster_icons/MHW_Rathian_Icon.webp
-    'Pink Rathian' assets/img/monster_icons/MHW_Pink_Rathian_Icon.webp
-    'Teostra'  assets/img/monster_icons/MHW_Teostra_Icon.webp 
-    "Savage Deviljho" assets/img/monster_icons/MHWI_Savage_Deviljho_Icon.webp
-    'Tobi-Kadachi' assets/img/monster_icons/MHW_Tobi-Kadachi_Icon.webp
-    'Tzitzi-Ya-Ku' assets/img/monster_icons/MHW_Tzitzi-Ya-Ku_Icon.webp 
-    'Uragaan' assets/img/monster_icons/MHW_Uragaan_Icon.webp
-    'Vaal Hazak' assets/img/monster_icons/MHW_Vaal_Hazak_Icon.webp 
-    'Blackveil Vaal Hazak' assets/img/monster_icons/MHWI_Blackveil_Vaal_Hazak_Icon.webp
-    'Xeno\'Jiiva' assets/img/monster_icons/MHW_Xeno%27jiiva_Icon.webp
-    'Zorah Magdaros' assets/img/monster_icons/MHW_Zorah_Magdaros_Icon.webp
+    'Radobaan' : "MHW_Radobaan_Icon.webp",
+    'Rathalos' : "MHW_Rathalos_Icon.webp",
+    'Rathian' : "MHW_Rathian_Icon.webp",
+    'Pink Rathian' : "MHW_Pink_Rathian_Icon.webp",
+    'Teostra' : "MHW_Teostra_Icon.webp", 
+    "Savage Deviljho" : "MHWI_Savage_Deviljho_Icon.webp",
+    'Tobi-Kadachi' : "MHW_Tobi-Kadachi_Icon.webp",
+    'Tzitzi-Ya-Ku' : "MHW_Tzitzi-Ya-Ku_Icon.webp",
+    'Uragaan' : "MHW_Uragaan_Icon.webp",
+    'Vaal Hazak' : "MHW_Vaal_Hazak_Icon.webp", 
+    'Blackveil Vaal Hazak' : "MHWI_Blackveil_Vaal_Hazak_Icon.webp",
+    'Xeno\'Jiiva' : "MHW_Xeno%27jiiva_Icon.webp",
+    'Zorah Magdaros' : "MHW_Zorah_Magdaros_Icon.webp",
+    'Banbaro' : "MHWI_Banbaro_Icon.webp",
+    'Belotodus' : "MHWI_Beotodus_Icon.webp",
+    'Nargacuga' : "MHWI_Nargacuga_Icon.webp",
+    'Velkhana' : "MHWI_Velkhana_Icon.webp",
+    'Tigrex' : "MHWI_Tigrex_Icon.webp",
+    'Shrieking Legiana' : "MHWI_Shrieking_Legiana_Icon.webp",
+    'Barioth' : "MHWI_Barioth_Icon.webp",
+    'Glavenus' : "MHWI_Glavenus_Icon.webp",
+    'Brachydios' : "MHWI_Brachydios_Icon.webp", 
+    'Fulgur Anjanath' : "MHWI_Fulgur_Anjanath_Icon.webp",
+    'Ebony Odogaron' : "MHWI_Ebony_Odogaron_Icon.webp",
+    'Acidic Glavenus' : "MHWI_Acidic_Glavenus_Icon.webp",
+    'Ruiner Nergigante' : "MHWI_Ruiner_Nergigante_Icon.webp",
+    'Viper Tobi-Kadachi' : "MHWI_Viper_Tobi-Kadachi_Icon.webp",
+    'Coral Pukei-Pukei' : "MHWI_Coral_Pukei-Pukei_Icon.webp",
+    'Nightshade Paolumu' : "MHWI_Nightshade_Paolumu_Icon.webp",
+    'Namielle' : "MHWI_Namielle_Icon.webp",
+    'Yian Garuga' : "MHWI_Yian_Garuga_Icon.webp",
+    'Shara Ishvalda' : "MHWI_Shara_Ishvalda_Icon.webp",
+    'Scarred Yian Garuga' : "MHWI-Scarred_Yian_Garuga_Icon.webp",
+    'Gold Rathian' : "mhwi-gold_rathian_icon.png",
+    'Silver Rathalos' : "MHW_Silver_Rathalos.png",
+    'Brute Tigrex' : "MHWI_Brute_Tigrex_Icon.webp",
+    'Zinogre' : "MHWI_Zinogre_Icon.webp",
+    'Rajang' : "MHWI_Rajang_Icon.webp",
+    'Fatalis' : "mhwi-fatalis_icon.png",
+    /*'Azure Rathalos'
     'Leshen'
-    'Banbaro' assets/img/monster_icons/MHWI_Banbaro_Icon.webp
-    'Belotodus' assets/img/monster_icons/MHWI_Beotodus_Icon.webp 
-    'Nargacuga' assets/img/monster_icons/MHWI_Nargacuga_Icon.webp
-    'Velkhana' assets/img/monster_icons/MHWI_Velkhana_Icon.webp
-    'Tigrex' assets/img/monster_icons/MHWI_Tigrex_Icon.webp
-    'Shrieking Legiana' assets/img/monster_icons/MHWI_Shrieking_Legiana_Icon.webp
-    'Barioth' assets/img/monster_icons/MHWI_Barioth_Icon.webp
-    'Glavenus' assets/img/monster_icons/MHWI_Glavenus_Icon.webp
-    'Brachydios' assets/img/monster_icons/MHWI_Brachydios_Icon.webp 
-    'Fulgur Anjanath' assets/img/monster_icons/MHWI_Fulgur_Anjanath_Icon.webp
-    'Ebony Odogaron' assets/img/monster_icons/MHWI_Ebony_Odogaron_Icon.webp
-    'Acidic Glavenus' assets/img/monster_icons/MHWI_Acidic_Glavenus_Icon.webp 
-    'Ruiner Nergigante' assets/img/monster_icons/MHWI_Ruiner_Nergigante_Icon.webp
-    'Viper Tobi-Kadachi' assets/img/monster_icons/MHWI_Viper_Tobi-Kadachi_Icon.webp
-    'Coral Pukei-Pukei' assets/img/monster_icons/MHWI_Coral_Pukei-Pukei_Icon.webp 
-    'Nightshade Paolumu' assets/img/monster_icons/MHWI_Nightshade_Paolumu_Icon.webp
-    'Namielle' assets/img/monster_icons/MHWI_Namielle_Icon.webp
-    'Yian Garuga' assets/img/monster_icons/MHWI_Yian_Garuga_Icon.webp 
-    'Shara Ishvalda' assets/img/monster_icons/MHWI_Shara_Ishvalda_Icon.webp 
-    'Scarred Yian Garuga' assets/img/monster_icons/MHWI-Scarred_Yian_Garuga_Icon.webp
-    'Gold Rathian' assets/img/monster_icons/mhwi-gold_rathian_icon.png 
-    'Silver Rathalos' assets/img/monster_icons/MHW_Silver_Rathalos.png
-    'Brute Tigrex' assets/img/monster_icons/MHWI_Brute_Tigrex_Icon.webp
-    'Zinogre' assets/img/monster_icons/MHWI_Zinogre_Icon.webp
-    'Rajang' assets/img/monster_icons/MHWI_Rajang_Icon.webp
     'Stygian Zinogre'
     'Safi\'jiiva'
     'Raging Brachydios'
     'Furious Rajang'
     'Alatreon'
-    'Frostfang Barioth'
-    'Fatalis'assets/img/monster_icons/mhwi-fatalis_icon.png*/
+    'Frostfang Barioth'*/
 }
 
 const weaponIconFileMatcher = {
