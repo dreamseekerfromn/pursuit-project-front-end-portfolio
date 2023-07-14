@@ -406,7 +406,7 @@ function toolTipGen(tooltip, monsterName){
  * it will create actual tooltip.
  * 
  * @param {object} tooltip - the tag where the data is attatched.
- * @param {object*} json - JSON from the api.
+ * @param {object[]} json - JSON from the api.
  */
 function jsonHandler(tooltip,json){
     //let name = json[0].name;

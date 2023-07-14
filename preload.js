@@ -2,9 +2,23 @@ const info_pg = document.querySelector(".info_pg");
 import { monImgFileMatcher } from "./matcher.js";
 const url = "https://mhw-db.com/monsters/";
 
-
+/**
+ * DOMContentLoaded
+ * Listen to preload event
+ * 
+ * @type {HTMLElement} - event will be fired when the page is loaded/
+ * @listens DOMContentLoaded
+ */
 window.addEventListener("DOMContentLoaded", (e) => onPageLoaded(e));
 
+/**
+ * onPageLoaded()
+ * ----------------------------------------
+ * trigger when the page is loaded
+ * 
+ * @param {document#event:DOMContentLoaded} e 
+ * @listens DOMContentLoaded
+ */
 function onPageLoaded(e){
     const monsterBox = document.querySelector('.monster_list');
     const monsterName = randomProperty(monImgFileMatcher);
@@ -12,11 +26,24 @@ function onPageLoaded(e){
     fetch(`${url}\?q={\"name\":\"${monsterName}\"}`).then(data => data.json()).then(json => jsonHandler(monsterName, json));
 }
 
+/**
+ * jsonHandler()
+ * ---------------------------
+ * a function to handle json.
+ * this will fill out random info for a monster to .info_pg
+ * 
+ * @param {string} monsterName - name of a monster, will be selected randomly
+ * @param {Object*} json - json from the api.
+ */
 function jsonHandler(monsterName, json){
+    /* if info is already exist, remove it */
     const existingQuery = document.querySelector('.info_pg_record');
+
     if(existingQuery){
         existingQuery.remove();
     }
+
+    /* declare HTML elements w/ attributes */
     const monNameTag = document.createElement("div");
     monNameTag.innerHTML = `<span class="list_sub">${monsterName}</span>`;
     monNameTag.setAttribute('class','info_pg_record');
@@ -33,6 +60,14 @@ function jsonHandler(monsterName, json){
     
 }
 
+/**
+ * monsterInfoGen()
+ * ----------------------------
+ * will fill out w/ info from the api to [tag].
+ * 
+ * @param {object} tag - where we put all info
+ * @param {object[]} json - json from api.
+ */
 function monsterInfoGen(tag, json){
     const species = json[0]["species"];
     const description = json[0]["description"];
@@ -55,6 +90,14 @@ function monsterInfoGen(tag, json){
     tag.appendChild(elementsDiv);
 }
 
+/**
+ * randomProperty()
+ * ----------------------
+ * return random property name of [obj] that is passed into this function.
+ * 
+ * @param {object} obj - an object.
+ * @returns {string} - random name of property
+ */
 function randomProperty(obj) {
     let keys = Object.keys(obj);
     return keys[keys.length * Math.random() << 0];
