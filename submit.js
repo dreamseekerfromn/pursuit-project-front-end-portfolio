@@ -250,23 +250,28 @@ function successFieldGen(successTag, success){
 }
 
 function numOfTrialFieldGen(trialTag, numOfTrial){
-    trialTag.innerText = numOfTrial;
+    trialTag.innerHTML = `<span class="list_sub">Number of Trial</span> ${numOfTrial}`;
 }
 
 function difficultyFieldGen(difficultyTag, difficulty){
-    difficultyTag.innerText = difficulty;
+    difficultyTag.innerHTML = `<span class="list_sub">Quest Rank</span> ${difficulty}`;
 }
 
 function weaponFieldGen(weaponTag, weapon){
+    weaponTag.innerHTML = `<span class="list_sub">${weapon}</span>`;
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/img/weapons/${weaponIconFileMatcher[weapon]}`);
     img.setAttribute('class', "weapon_icon");
-    weaponTag.appendChild(img);
+    weaponTag.prepend(img);
 
     const h4 = document.createElement('h4');
     h4.innerText = weapon;
 
-    weaponTag.appendChild(h4);
+    
+
+    //weaponTag.appendChild(h4);
+    weaponTag.setAttribute('class', 'weapon_field');
+   
 }
 
 function monNameFieldGen(monNameTag, monsterName){
