@@ -259,37 +259,29 @@ function difficultyFieldGen(difficultyTag, difficulty){
 
 function weaponFieldGen(weaponTag, weapon){
     weaponTag.innerHTML = `<span class="list_sub">${weapon}</span>`;
+    
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/img/weapons/${weaponIconFileMatcher[weapon]}`);
     img.setAttribute('class', "weapon_icon");
     weaponTag.prepend(img);
 
-    const h4 = document.createElement('h4');
-    h4.innerText = weapon;
-
-    
-
-    //weaponTag.appendChild(h4);
     weaponTag.setAttribute('class', 'weapon_field');
    
 }
 
 function monNameFieldGen(monNameTag, monsterName){
+    monNameTag.innerHTML = `<span class="list_sub">${monsterName}</span>`;
     monNameTag.setAttribute('class','monster_info');
     const img = document.createElement('img');
     img.setAttribute('src', `./assets/img/monster_icons/${monImgFileMatcher[monsterName]}`);
     img.setAttribute('class', "monster_icon");
-    monNameTag.appendChild(img);
+    monNameTag.prepend(img);
 
     const tooltip = document.createElement('span');
     tooltip.setAttribute('class','tooltip');
 
     toolTipGen(tooltip, monsterName);
     monNameTag.appendChild(tooltip);
-
-    const h4 = document.createElement('h4');
-    h4.innerText = monsterName;
-    monNameTag.appendChild(h4);
 }
 
 function toolTipGen(tooltip, monsterName){
