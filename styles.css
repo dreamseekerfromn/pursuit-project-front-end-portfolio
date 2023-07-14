@@ -63,12 +63,10 @@ main {
     grid-template-areas: 
     'input result result'
     'input result result'
-    'input result result';
+    'info info info';
     width: 100%;
     height: 100%;
 }
-
-
 
 .err_msg_container {
     background-color: red;
@@ -98,6 +96,22 @@ label {
     transition: all 0.5s ease;
 }
 
+.info_pg {
+    grid-area: info;
+    margin: 2%;
+    background-color: black;
+    border-color: silver;
+    border-style: double;
+    border-inline-width: 5px;
+    background-image: url("./assets/img/old_paper.jpeg");
+    transition: all 0.5s ease;
+}
+
+.info_pg span {
+    border-color: brown;
+    border-style: groove;
+}
+
 footer {
 
     grid-row: 3;
@@ -124,6 +138,15 @@ footer {
     border-color: brown;
     border-style: ridge;
     border-width: 4px;
+}
+
+.monster_icon_small {
+    max-width: 30px;
+    max-height: 30px;
+    background-image: url("./assets/img/old_paper.jpeg");
+    border-color: brown;
+    border-style: ridge;
+    border-width: 1px;
 }
 
 .tooltip {
@@ -175,4 +198,9 @@ p {
     border-color: brown;
     background-image: url("./assets/img/old_paper.jpeg");
     color:black;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 40px;
 }
