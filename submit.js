@@ -403,7 +403,32 @@ function monNameFieldGen(monNameTag, monsterName){
  * @param {string} monsterName 
  */
 function toolTipGen(tooltip, monsterName){
-    fetch(`${url}\?q={\"name\":\"${monsterName}\"}`).then(data => data.json()).then(json => jsonHandler(tooltip, json));
+    fetch(`${url}\?q={\"name\":\"${monsterName}\"}`).then(data => data.json()).then(json => jsonHandler(tooltip, json)).catch((errorFetch) => showFetchErr(errorFetch));
+}
+
+/**
+ * showFetchErr()
+ * -----------------------------
+ * will attatch error code to the error message container.
+ * 
+ * @param {string} errMessage - 
+ */
+export function showFetchErr(errMessage){
+    const errMsgContainerQuery = document.querySelector('.err_msg_container');
+
+    if(errMsgContainerQuery){
+        errMsgContainerQuery.remove();
+    }
+
+    /* create new container for error message */
+    const errorMsgContainer = document.createElement('p');
+    errorMsgContainer.setAttribute('class','err_msg_container');
+    
+    const span = document.createElement('span');
+    span.innerText = `Error code :${errMessage}`;
+            
+    errorMsgContainer.appendChild(span);
+    err.appendChild(errorMsgContainer);
 }
 
 /**

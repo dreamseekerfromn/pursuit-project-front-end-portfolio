@@ -1,5 +1,6 @@
 const info_pg = document.querySelector(".info_pg");
 import { monImgFileMatcher } from "./matcher.js";
+import { showFetchErr } from "./submit.js";
 const url = "https://mhw-db.com/monsters/";
 
 /**
@@ -23,7 +24,7 @@ function onPageLoaded(e){
     const monsterBox = document.querySelector('.monster_list');
     const monsterName = randomProperty(monImgFileMatcher);
 
-    fetch(`${url}\?q={\"name\":\"${monsterName}\"}`).then(data => data.json()).then(json => jsonHandler(monsterName, json));
+    fetch(`${url}\?q={\"name\":\"${monsterName}\"}`).then(data => data.json()).then(json => jsonHandler(monsterName, json)).catch((errorFetch) => showFetchErr(errorFetch));;
 }
 
 /**
