@@ -5,16 +5,23 @@
     <head>
         <title>Personal Monster Hunter Diary</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="matcher.js" ></script>
         <script type="module" src="submit.js" defer></script>
         <script type="module" src="reset.js" defer></script>
         <script type="module" src="preload.js" ></script>
+        <script type="module" src="open_help.js" defer></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+        <link rel="manifest" href="assets/img/site.webmanifest" />
     </head>
     <body>
         <header>
             <img src="./assets/img/title_mark.svg" class="header_img">
             <h1>Personal Monster Hunter Diary</h1>
+            <button class="help_page">HELP</button>
         </header>
         <main>
             <div class="input_field">
@@ -93,7 +100,7 @@
                         <option id="frostfang_barioth">Frostfang Barioth</option>
                         <option id="fatalis">Fatalis</option>
                     </select><br/>
-                    <label for="difficulty">Rank</label><br/>
+                    <label for="difficulty">Quest Rank</label><br/>
                     <select class="difficulty" id="difficulty">
                         <option>Low Rank</option>
                         <option>High Rank</option>

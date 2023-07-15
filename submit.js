@@ -229,6 +229,9 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
     successFieldGen(successTag, success);
     div.appendChild(successTag);
 
+    memoFieldGen(memoTag, memo);
+    div.appendChild(memoTag);
+
     /* set class name, so we can hide this record */
     div.setAttribute('class', 'record_hidden');
     
@@ -250,6 +253,10 @@ function createDiary(weapon, memo, difficulty, numOfTrial, success, monsterName)
     addRemove(listDiv);
 
     resultDiv.prepend(listDiv);
+}
+
+function memoFieldGen(tag, memo){
+    tag.innerHTML = `<span class="list_sub">${memo}</span>`;
 }
 
 /**

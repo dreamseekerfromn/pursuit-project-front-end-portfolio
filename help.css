@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+html {
+    background-image: url(./assets/img/background/bg_page.jpg);
+    background-size: cover;
+    font:"Noto Sans";
+    text-align: center;
+}
+
+body{
+    background-image: url("./assets/img/old_paper.jpeg");
+    background-size: cover;
+    margin: 1%;
+    height: 100%;
+    width: 100%;
+}
+
+div,h1,li {
+    color: black;
+}
