@@ -2,6 +2,7 @@
 
 ## Introduction
 Since im really lazy, I personally do not want to use to many APIs, and want to put "SIMPLE" and "BASIC" functionality for this project.
+This webpage is a memo page for a video game, the Monster Hunter: World. You can write down basic record Manually (Sound silly, but it is just a memo).
 
 ## How To Use?
 It is really simple. Choose monster's name ,its rank, weapon that you used during that trial, typing the number of trial, and some extra stuff you want to write down.
@@ -24,5 +25,3 @@ Close button on the help page does not work correctly.
 ## Plan for Update?
 This one is just basic skeleton design for the project, so it has only some basic functions.
 And the API does not have some monsters' info, so I have to find another API or need to create new one for this project.
-
-
