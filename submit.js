@@ -147,7 +147,7 @@ function validateNum(errorMsgContainer, str){
     /* is it digit? */
     if(!/\d+/.test(str.toString())){
         const span = document.createElement('span');
-        span.innerText = "digit only";
+        span.innerText = "The number of Trial can accept only digits";
         
         errorMsgContainer.appendChild(span);
         err.appendChild(errorMsgContainer);
