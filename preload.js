@@ -36,11 +36,12 @@ function onPageLoaded(e){
  * @param {string} monsterName - name of a monster, will be selected randomly
  * @param {Object*} json - json from the api.
  */
-function jsonHandler(monsterName, json){
+export function jsonHandler(monsterName, json){
     /* if info is already exist, remove it */
     const existingQuery = document.querySelector('.info_pg_record');
 
     if(existingQuery){
+        existingQuery.innerHTML = '';
         existingQuery.remove();
     }
 
@@ -57,7 +58,7 @@ function jsonHandler(monsterName, json){
     monNameTag.prepend(imgIcon);
 
     info_pg.appendChild(monNameTag);
-    monsterInfoGen(info_pg, json);
+    monsterInfoGen(monNameTag, json);
     
 }
 
@@ -69,7 +70,7 @@ function jsonHandler(monsterName, json){
  * @param {object} tag - where we put all info
  * @param {object[]} json - json from api.
  */
-function monsterInfoGen(tag, json){
+export function monsterInfoGen(tag, json){
     const species = json[0]["species"];
     const description = json[0]["description"];
     const elements = json[0]["elements"];
@@ -99,7 +100,7 @@ function monsterInfoGen(tag, json){
  * @param {object} obj - an object.
  * @returns {string} - random name of property
  */
-function randomProperty(obj) {
+export function randomProperty(obj) {
     let keys = Object.keys(obj);
     return keys[keys.length * Math.random() << 0];
 }

@@ -11,6 +11,7 @@
         <script type="module" src="reset.js" defer></script>
         <script type="module" src="preload.js" ></script>
         <script type="module" src="open_help.js" defer></script>
+        <script type="module" src="onSelect.js" defer></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
@@ -27,7 +28,7 @@
             <div class="input_field">
                 <form class="new_item" id="new_item">
                     <label for="monster_list">Monster Name</label><br/>
-                    <select class="monster_list">
+                    <select class="monster_list" id="monster_list">
                         <option id="anjanath">Anjanath</option>
                         <option id="barroth">Barroth</option>
                         <option id="bazelgeuse">Bazelgeuse</option>
